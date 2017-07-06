@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalacode.iml" filepath="$PROJECT_DIR$/.idea/modules/scalacode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scalacode-build.iml" filepath="$PROJECT_DIR$/.idea/modules/scalacode-build.iml" />
     </modules>
   </component>
 </project>
