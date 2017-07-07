@@ -15,7 +15,7 @@ case class Number(n: Int) extends Expressions
 
 case class Sum(e1: Expressions, e2: Expressions) extends Expressions
 
-object testing1 {
+object testingExpressions {
   def main(args: Array[String]) = {
     val num = Number(1)
     assert(num.eval == 1)
@@ -24,5 +24,21 @@ object testing1 {
 
     println(num.show)
     println(sum.show)
+
+    val list1 = List(1, 2, 3)
+    val list2 = 1 :: 2 :: 3 :: Nil
+    assert(list1.head == list2.head)
+    assert(isort(List(3,2,1)).equals(List(1,2,3)))
+    println(isort(List(-1,-2,-3)))
+  }
+
+  def isort(xs: List[Int]): List[Int] = xs match {
+    case List() => List[Int]()
+    case y :: ys => insert(y, isort(ys))
+  }
+
+  private def insert(x: Int, xs: List[Int]): List[Int] = xs match {
+    case List() => List(x)
+    case y::ys => if (x <= y) x :: xs else y :: insert(x, ys)
   }
 }

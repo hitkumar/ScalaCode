@@ -1,15 +1,15 @@
 
-trait List[T] {
+trait CustonList[T] {
   def isEmpty: Boolean
   def head: T
-  def tail: List[T]
+  def tail: CustonList[T]
 }
 
-class Cons[T](val head: T, val tail: List[T]) extends List[T] {
+class Cons[T](val head: T, val tail: CustonList[T]) extends CustonList[T] {
   def isEmpty = false
 }
 
-class Nil[T] extends List[T] {
+class Nil[T] extends CustonList[T] {
   def isEmpty = true
   def head = throw new NoSuchElementException("Nil.head")
   def tail = throw new NoSuchElementException("Nil.tail")
@@ -17,9 +17,9 @@ class Nil[T] extends List[T] {
 
 object testing {
 
-  def singleton[T](elem: T): List[T] = new Cons[T](elem, new Nil[T])
+  def singleton[T](elem: T): CustonList[T] = new Cons[T](elem, new Nil[T])
 
-  def nth[T](n: Int, xs: List[T]): T = {
+  def nth[T](n: Int, xs: CustonList[T]): T = {
     if (xs.isEmpty) throw new IndexOutOfBoundsException
     if (n == 0) xs.head
     else nth(n - 1, xs.tail)
