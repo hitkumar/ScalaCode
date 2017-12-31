@@ -25,11 +25,28 @@ object testingExpressions {
     println(num.show)
     println(sum.show)
 
+    val n = 8
+    val a = for {
+      i <- 1 until n
+      j <- 1 until i
+      if i + j >= 9
+    } yield i + j
+    println("a is " + a)
+
+    val b = (1 until n).flatMap { i =>
+      (1 until i).map { j =>
+        (i + j)
+      }
+    }
+
+    println("b is " + b.sum)
+
     val list1 = List(1, 2, 3)
     val list2 = 1 :: 2 :: 3 :: Nil
     assert(list1.head == list2.head)
     assert(isort(List(3,2,1)).equals(List(1,2,3)))
     println(isort(List(-1,-2,-3)))
+    println(Map(("a" -> 1)))
   }
 
   def isort(xs: List[Int]): List[Int] = xs match {
